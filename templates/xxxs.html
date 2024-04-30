@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Animes{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{{ url_for('xxxs') }}">
+        <input type="text" name="search" value="{{ search_query }}" placeholder="Search Anime">
+        <button type="submit">Search</button>
+    </form>
+    {% if xxxs %}
+        <ul>
+            {% for anime in xxxs %}
+                <li><a href="{{ url_for('xxx_detail', id=anime['id']) }}">{{ anime['title']['text'] }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No animes found!</p>
+    {% endif %}
+{% endblock %}
